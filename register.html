@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>H-I-S</title>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <link rel="icon" href="supply.png" sizes="16x16">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .left {
+      width: 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 45px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      width: 80%;
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #cce1ff;
+    }
+
+    .register-btn {
+      background-color: #4a90e2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      float: right;
+      margin-top: 20px;
+    }
+
+    .auth-switch {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #333;
+      text-align: center;
+    }
+
+    .auth-switch a {
+      color: #0077ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .auth-switch a:hover {
+      text-decoration: underline;
+    }
+
+    .right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .welcome-banner {
+      width: 80%;
+      height: 50px;
+      background-color: #5caaff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .welcome-box {
+      width: 80%;
+      height: 200px;
+      background-color: #5caaff;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+<a href="login.html" class="back-arrow">⬅</a>
+
+<div class="container">
+  <div class="left">
+    <img src="supply.png" alt="Logo" class="logo" />
+
+    <div class="input-group">
+      <label for="fullname">Fullname</label>
+      <input type="text" id="fullname" required>
+    </div>
+
+    <div class="input-group">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+    </div>
+
+    <div class="input-group">
+      <label for="repeat-password">Repeat Password</label>
+      <input type="password" id="repeat-password" required>
+    </div>
+
+    <div class="input-group">
+      <label for="role">Role</label>
+      <input type="text" id="role">
+    </div>
+
+    <div class="auth-switch">
+      Already have an account? <a href="login.html">Sign In</a>
+    </div>
+
+    <button class="register-btn" onclick="handleRegister()">Register</button>
+  </div>
+
+  <div class="right">
+    <div class="welcome-banner">Welcome</div>
+    <div class="welcome-box"></div>
+  </div>
+</div>
+
+<script>
+  const supabaseUrl = "https://xjnaomtruvrdacptpvzb.supabase.co";
+  const supabaseKey = "your_public_key_here"; // Keep this safe
+  const { createClient } = supabase;
+  const supabaseClient = createClient(supabaseUrl, supabaseKey);
+
+  async function handleRegister() {
+    const fullname = document.getElementById('fullname').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const repeatPassword = document.getElementById('repeat-password').value;
+    const role = document.getElementById('role').value;
+
+    if (password !== repeatPassword) {
+      return alert("Passwords do not match.");
+    }
+
+    const { data, error } = await supabaseClient.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { fullname, role }
+      }
+    });
+
+    if (error) {
+      alert("Registration failed: " + error.message);
+    } else {
+      alert("Registration successful! Please check your email.");
+      window.location.href = "loading.html";
+    }
+  }
+</script>
+</body>
+</html>

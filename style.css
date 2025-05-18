@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+ font-family: Arial, sans-serif;
+background-color: #cfe3ff;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #ffffff;
+  border: 1px solid #aac8f0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px;
+  margin-bottom: 25px;
+}
+
+.nav button {
+  width: 115%;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  background-color: #e0ecff;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav button:hover {
+  background-color: #b5d3ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.main {
+  flex: 1;
+  margin-left: 10px;
+  background-color: #ffffff;
+  border: 1px solid #aac8f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.top-bar {
+  background-color: #b5d3ff;
+  padding: 10px 20px;
+  text-align: right;
+  border-bottom: 1px solid #aac8f0;
+}
+
+.admin-btn {
+  background-color: #609af8;
+  color: white;
+  padding: 6px 15px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.admin-btn:hover {
+  background-color: #3b82f6;
+}
+
+.items-section {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 80px;
+  padding: 30px;
+  flex: 1;
+  background-color: white;
+}
+
+.item {
+  border: 1px solid #b2ccf0;
+  padding: 30px 10px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ffffff;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 8px;
+}
+
+.item:hover {
+  background-color: #f2f8ff;
+}
+
+.scrollbar {
+  width: 30px;
+  background-color: #609af8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #aac8f0;
+}
+
+.arrow {
+  color: black;
+  font-size: 24px;
+  margin: 10px 0;
+  cursor: pointer;
+  user-select: none;
+}
+.arrow:hover {
+  color: #3b82f6;
+}
+

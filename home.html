@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>H-I-S</title>
+  <link rel="icon" sizes="16x16" href="supply.png" class="rounded-circle" style="border-radius: 100%;">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #cfe3ff;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #ffffff;
+      border: 1px solid #aac8f0;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar .logo img {
+      width: 100px;
+      margin-bottom: 25px;
+    }
+
+    .nav button {
+      width: 115%;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      background-color: #e0ecff;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+      border-left: 4px solid transparent;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .top-bar {
+      background-color: #b5d3ff;
+      padding: 10px 20px;
+      text-align: right;
+      border-bottom: 1px solid #aac8f0;
+    }
+
+    .admin-btn {
+      background-color: #609af8;
+      color: white;
+      padding: 6px 15px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .search-bar {
+      background-color: #5caaff;
+      padding: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-bar input,
+    .search-bar button {
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .search-bar input {
+      flex: 1;
+    }
+
+    .search-bar button {
+      background-color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f0f6ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="supply.png" alt="Logo">
+      </div>
+      <div class="nav">
+        <a href="home.html"><button>Home</button></a><br><br>
+        <a href="dashboard.html"><button>Dashboard</button></a><br><br>
+        <a href="order.html"><button>Order</button></a><br><br>
+        <a href="orderhistory.html"><button>Order History</button></a><br><br>
+        <a href="tracking.html"><button>Inventory tracking</button></a><br><br>
+        <a href="settings.html"><button>Settings</button></a><br><br>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <div class="top-bar">
+        <button class="admin-btn">ADMIN</button>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button>🔃</button>
+        <button>All Items</button>
+        <button>Add</button>
+      </div>
+
+      <!-- Inventory Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>Numbers</th>
+            <th>Item names</th>
+            <th>Item cost</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Item names</td>
+            <td>Item cost</td>
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Item names</td>
+            <td>Item cost</td>
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Item names</td>
+            <td>Item cost</td>
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Item names</td>
+            <td>Item cost</td>
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Item names</td>
+            <td>Item cost</td>
+            <td>Description</td>
+            <td>Quantity</td>
+            <td>Available</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Future JavaScript goes here -->
+  <!-- <script src="script.js"></script> -->
+
+</body>
+</html>

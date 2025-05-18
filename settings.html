@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>H-I-S</title>
+  <link rel="icon" sizes="16x16" href="supply.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #cfe3ff;
+      overflow-x: hidden;
+      overflow-y: hidden; /* hide vertical scrollbar */
+    }
+
+    body::-webkit-scrollbar {
+      display: none; /* hide scrollbar for WebKit browsers */
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
+      margin-top: 1px;
+      border: 1px solid #aac8f0;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .profile-pic {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border: 4px solid white;
+    }
+
+    .info {
+      flex-grow: 1;
+      padding-left: 20px;
+    }
+
+    .info h2 {
+      margin: 0;
+    }
+
+    .info p {
+      margin: 4px 0;
+    }
+
+    .drop-zone {
+      margin: 20px 0;
+      padding: 20px;
+      border: 2px dashed #ccc;
+      text-align: center;
+      color: #888;
+      border-radius: 10px;
+    }
+
+    .form {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .form-group {
+      width: 50%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 80%;
+      padding: 10px;
+      background-color: #cce0ff;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      background-color: #6699ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      background-color: #3366cc;
+    }
+
+    .back-button {
+      font-size: 45px;
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    .logout {
+      background-color: #6699ff;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100px;
+      margin-top: 20px;
+      align-self: flex-end;
+    }
+
+    .logout:hover {
+      background-color: #3366cc;
+    }
+  </style>
+</head>
+<body>
+  <a href="home.html" class="back-button">⬅</a>
+  <div class="container">
+    <div class="header">
+      <img src="ERICK MONDEJARR.jpg" alt="Profile Picture" class="profile-pic">
+      <div class="info">
+        <h2>Allyn</h2>
+        <p>Allyn@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="drop-zone">Drop Files Here</div>
+
+    <h3>Account</h3>
+
+    <form class="form">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" value="Allyn" readonly>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" value="Allyn@gmail.com" readonly>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" value="********" readonly>
+      </div>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" value="Allyn Marc The Great" readonly>
+      </div>
+      <div class="form-group">
+        <label>Role</label>
+        <input type="text" value="Bossing" readonly>
+      </div>
+    </form>
+
+    <div class="buttons">
+      <button id="edit-btn">Edit</button>
+      <button id="apply-btn">Apply</button>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+      <a href="loading.html"><button class="logout">Log Out</button></a>
+    </div>
+  </div>
+
+  <script>
+    const editBtn = document.getElementById('edit-btn');
+    const applyBtn = document.getElementById('apply-btn');
+    const inputs = document.querySelectorAll('.form input');
+
+    applyBtn.style.display = 'none';
+
+    editBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.removeAttribute('readonly'));
+      applyBtn.style.display = 'block';
+    });
+
+    applyBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.setAttribute('readonly', true));
+      applyBtn.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
